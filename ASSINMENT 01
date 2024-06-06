@@ -1,0 +1,26 @@
+1.Write a program to reverse a word using loop?(Not to use inbuilt functions)
+Sample Input:
+String: TEMPLE
+Sample Output:
+Reverse String: ELPMET
+Test cases:
+SIGN UP
+AT-LEAST
+1245
+!@#$%
+145*999=144855
+SOURCE CODE:
+
+def reverse_string(input_string):
+reversed_string = ""
+for char in input_string:
+reversed_string = char + reversed_string
+return reversed_string
+
+test_cases = ["TEMPLE", "SIGN UP", "AT-LEAST", "1245", "!@#$%", "145*999=144855"]
+
+for test in test_cases:
+print(f"Original String: {test}")
+print(f"Reversed String: {reverse_string(test)}")
+print()
+OUTPUT:
