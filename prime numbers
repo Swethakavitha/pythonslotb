@@ -1,0 +1,28 @@
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num == 2:
+        return True  # 2 is prime
+    if num % 2 == 0:
+        return False  # Even numbers other than 2 are not prime
+    # Check for factors from 3 up to the square root of num
+    sqrt_num = int(num**0.5) + 1
+    for i in range(3, sqrt_num, 2):
+        if num % i == 0:
+            return False
+    return True
+
+def print_non_prime_numbers(A, B):
+    non_prime_numbers = []
+    for num in range(A, B + 1):
+        if not is_prime(num):
+            non_prime_numbers.append(num)
+    if non_prime_numbers:
+        print(", ".join(map(str, non_prime_numbers)))
+    else:
+        print("There are no non-prime numbers between", A, "and", B)
+
+# Example usage:
+A = 12
+B = 19
+print_non_prime_numbers(A, B)
