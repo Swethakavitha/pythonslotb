@@ -1,0 +1,15 @@
+def count_special_characters(statement):
+    special_chars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    count = 0
+    
+    for char in statement:
+        if char in special_chars:
+            count += 1
+    
+    return count
+
+# Example usage:
+given_statement = "Modi Birthday @ September 17, #&$% is the wishes code for him."
+special_char_count = count_special_characters(given_statement)
+print(f"Given statement: {given_statement}")
+print(f"Number of special Characters: {special_char_count}")
