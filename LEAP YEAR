@@ -1,0 +1,40 @@
+def is_leap_year(date):
+    try:
+        # Extract year from date (assuming date format is MM/DD/YYYY or DD/MM/YYYY)
+        parts = date.split('/')
+        year = int(parts[2])
+        
+        if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+            return True
+        else:
+            return False
+    
+    except (IndexError, ValueError):
+        return False
+
+# Function to handle input and output
+def check_leap_year():
+    date = input("Enter Date (MM/DD/YYYY or DD/MM/YYYY): ")
+    if is_leap_year(date):
+        print("Given year is Leap Year")
+    else:
+        print("Given year is Non Leap Year")
+
+# Test cases
+test_cases = [
+    "04/11/19.47",
+    "11/15/1936",
+    "31/45/1996",
+    "64/09/1947",
+    "00/00/2000"
+]
+
+for date in test_cases:
+    print(f"\nTest Case: {date}")
+    if is_leap_year(date):
+        print("Given year is Leap Year")
+    else:
+        print("Given year is Non Leap Year")
+
+# Uncomment the line below to test the interactive input/output function
+# check_leap_year()
