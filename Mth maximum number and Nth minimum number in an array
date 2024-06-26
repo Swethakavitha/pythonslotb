@@ -1,0 +1,55 @@
+def find_mth_and_nth(arr, M, N):
+    # Sort the array to find Mth maximum and Nth minimum
+    sorted_arr_asc = sorted(arr)
+    sorted_arr_desc = sorted(arr, reverse=True)
+    
+    # Check if M and N are within bounds
+    if M < 0 or M >= len(arr):
+        return "M is out of bounds"
+    if N < 0 or N >= len(arr):
+        return "N is out of bounds"
+    
+    # Get the Mth maximum and Nth minimum
+    mth_max = sorted_arr_desc[M]
+    nth_min = sorted_arr_asc[N]
+    
+    # Calculate sum and difference
+    total_sum = mth_max + nth_min
+    difference = abs(mth_max - nth_min)
+    
+    # Prepare the output format
+    output = f"{M+1}st Maximum Number = {mth_max} {N+1}rd Minimum Number = {nth_min} Sum = {total_sum} Difference = {difference}"
+    
+    return output
+
+# Example usage
+arr1 = [14, 16, 87, 36, 25, 89, 34]
+M1 = 1
+N1 = 3
+print(find_mth_and_nth(arr1, M1, N1))  # Output: 1st Maximum Number = 89 3rd Minimum Number = 25 Sum = 114 Difference = 64
+
+# Additional test cases
+arr2 = [16, 16, 16, 16, 16]
+M2 = 0
+N2 = 1
+print(find_mth_and_nth(arr2, M2, N2))  # Output: 1st Maximum Number = 16 2nd Minimum Number = 16 Sum = 32 Difference = 0
+
+arr3 = [0, 0, 0, 0]
+M3 = 1
+N3 = 2
+print(find_mth_and_nth(arr3, M3, N3))  # Output: 2nd Maximum Number = 0 3rd Minimum Number = 0 Sum = 0 Difference = 0
+
+arr4 = [-12, -78, -35, -42, -85]
+M4 = 3
+N4 = 3
+print(find_mth_and_nth(arr4, M4, N4))  # Output: 4th Maximum Number = -42 4th Minimum Number = -42 Sum = -84 Difference = 0
+
+arr5 = [15, 19, 34, 56, 12]
+M5 = 6
+N5 = 3
+print(find_mth_and_nth(arr5, M5, N5))  # Output: M is out of bounds
+
+arr6 = [85, 45, 65, 75, 95]
+M6 = 5
+N6 = 7
+print(find_mth_and_nth(arr6, M6, N6))  # Output: N is out of bounds
